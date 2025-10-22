@@ -1,0 +1,40 @@
+{
+  "quizId" : "quiz001",
+  "name" : "Java Basics Quiz",
+  "results" : [ {
+    "playerName" : "Majd",
+    "totalQuestions" : 2,
+    "correctQuestions" : 2,
+    "date" : "2025-10-20T14:59:47.2307853"
+  }, {
+    "playerName" : "Majd",
+    "totalQuestions" : 2,
+    "correctQuestions" : 1,
+    "date" : "2025-10-20T15:19:37.2563673"
+  }, {
+    "playerName" : "mads",
+    "totalQuestions" : 2,
+    "correctQuestions" : 2,
+    "date" : "2025-10-20T15:28:11.9418187"
+  }, {
+    "playerName" : "das",
+    "totalQuestions" : 2,
+    "correctQuestions" : 2,
+    "date" : "2025-10-20T15:47:43.1327609"
+  }, {
+    "playerName" : "das",
+    "totalQuestions" : 2,
+    "correctQuestions" : 2,
+    "date" : "2025-10-20T15:48:27.6943008"
+  }, {
+    "playerName" : "vccxwewq",
+    "totalQuestions" : 2,
+    "correctQuestions" : 2,
+    "date" : "2025-10-20T17:09:21.10812"
+  }, {
+    "playerName" : "DSA",
+    "totalQuestions" : 2,
+    "correctQuestions" : 2,
+    "date" : "2025-10-20T21:44:05.1570582"
+  } ]
+}

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<StackPane xmlns="http://javafx.com/javafx"
+           xmlns:fx="http://javafx.com/fxml"
+           fx:controller="nl.inholland.quizgame.controller.MenuController"
+           prefWidth="1000" prefHeight="600"
+           style="-fx-background-color: linear-gradient(to bottom, #f8f8f8, #ebebeb);">
+
+    <VBox alignment="CENTER" spacing="15" maxWidth="400">
+        <Label text="Welcome to Quiz Game!"
+               wrapText="false"
+               style="-fx-font-size: 28px; -fx-font-weight: bold;"/>
+
+        <TextField fx:id="nameField"
+                   promptText="Enter your name"
+                   prefWidth="200"
+                   maxWidth="200"
+                   style="-fx-font-size: 14px; -fx-padding: 5 8;"/>
+
+        <Button fx:id="loadQuizButton"
+                text="Load Quiz"
+                onAction="#handleLoadQuiz"
+                prefWidth="120"
+                style="-fx-font-size: 13px;"/>
+
+        <Button fx:id="startButton"
+                text="Start Quiz"
+                onAction="#handleStartQuiz"
+                disable="true"
+                prefWidth="120"
+                style="-fx-font-size: 13px;"/>
+
+        <Label fx:id="statusLabel"
+               text=""
+               style="-fx-text-fill: red; -fx-font-size: 13px;"/>
+    </VBox>
+
+</StackPane>

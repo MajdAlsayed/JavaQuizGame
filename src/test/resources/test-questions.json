@@ -1,0 +1,15 @@
+{
+  "pages": [
+    {
+      "timeLimit": 15,
+      "elements": [
+        {
+          "type": "radiogroup",
+          "title": "What is the capital of France?",
+          "choices": ["Berlin", "Paris", "Rome"],
+          "correctAnswer": "Paris"
+        }
+      ]
+    }
+  ]
+}

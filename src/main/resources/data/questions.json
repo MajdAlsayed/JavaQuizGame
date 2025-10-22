@@ -1,0 +1,22 @@
+{
+  "pages": [
+    {
+      "timeLimit": 15,
+      "elements": [
+        {
+          "type": "radiogroup",
+          "title": "What is the capital of France?",
+          "choices": ["Berlin", "Paris", "Rome"],
+          "correctAnswer": "Paris"
+        },
+        {
+          "type": "boolean",
+          "title": "Java is a type of operating system.",
+          "correctAnswer": false,
+          "labelTrue": "True",
+          "labelFalse": "False"
+        }
+      ]
+    }
+  ]
+}

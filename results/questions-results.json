@@ -1,0 +1,20 @@
+{
+  "quizId" : "questions",
+  "name" : "Quiz Results",
+  "results" : [ {
+    "playerName" : "cxzcweqwq",
+    "totalQuestions" : 2,
+    "correctQuestions" : 2,
+    "date" : "2025-10-20T22:54:08.6144575"
+  }, {
+    "playerName" : "zasqwqrdxcvzx",
+    "totalQuestions" : 2,
+    "correctQuestions" : 2,
+    "date" : "2025-10-20T22:59:48.7637561"
+  }, {
+    "playerName" : "xsadwqeqw",
+    "totalQuestions" : 2,
+    "correctQuestions" : 2,
+    "date" : "2025-10-20T23:35:26.6517456"
+  } ]
+}
