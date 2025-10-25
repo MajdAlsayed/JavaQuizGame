@@ -90,12 +90,18 @@ public class QuestionRepository {
                             answers.add(new Answer(choiceText, isCorrect));
                         }
                     }
-                } else if (type.equalsIgnoreCase("boolean")) {
+                }
+                else if (type.equalsIgnoreCase("boolean")) {
                     boolean correct = element.has("correctAnswer") && element.get("correctAnswer").asBoolean();
                     String trueLabel = element.has("labelTrue") ? element.get("labelTrue").asText() : "True";
                     String falseLabel = element.has("labelFalse") ? element.get("labelFalse").asText() : "False";
                     answers.add(new Answer(trueLabel, correct));
                     answers.add(new Answer(falseLabel, !correct));
+                }
+                else if (type.equalsIgnoreCase("text")) {
+                    // Free text answer type
+                    String correctAnswer = element.has("correctAnswer") ? element.get("correctAnswer").asText() : "";
+                    answers.add(new Answer(correctAnswer, true));
                 }
 
                 Question q = QuestionFactory.createQuestion(type, title, answers);
@@ -107,4 +113,5 @@ public class QuestionRepository {
             }
         }
     }
+
 }

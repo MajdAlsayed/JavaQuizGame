@@ -14,13 +14,13 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class ResultRepository {
 
+    // Save player result to JSON file
     public void saveResult(Result result) {
         File quizFile = GameManager.getInstance().getQuizFile();
         if (quizFile == null) {
-            System.out.println(" Cannot save result: no quiz file loaded.");
+            System.out.println("⚠ Cannot save result: no quiz file loaded.");
             return;
         }
 
@@ -55,58 +55,54 @@ public class ResultRepository {
             resultsArray.add(newResult);
             mapper.writerWithDefaultPrettyPrinter().writeValue(resultsFile, root);
 
-            System.out.println(" Result saved successfully to " + resultsFile.getPath());
+            System.out.println("Result saved successfully to " + resultsFile.getPath());
 
         } catch (IOException e) {
-            System.out.println(" Error saving results: " + e.getMessage());
+            System.out.println("Error saving results: " + e.getMessage());
             e.printStackTrace();
         } catch (Exception e) {
-            System.out.println(" Unexpected error while saving results: " + e.getMessage());
+            System.out.println("Unexpected error while saving results: " + e.getMessage());
             e.printStackTrace();
         }
     }
+
+    // Load all saved results from JSON
     public List<Result> loadResults() {
         List<Result> results = new ArrayList<>();
 
         try {
-            File quizFile = GameManager.getInstance().getQuizFile();
-            if (quizFile == null) {
-                System.out.println(" Cannot load results: no quiz file loaded.");
-                return results;
-            }
-
-            String quizName = quizFile.getName().replace(".json", "");
-            File resultsFile = new File("results/" + quizName + "-results.json");
-
-            if (!resultsFile.exists()) {
-                System.out.println("ℹ No results file found for this quiz.");
+            File resultsDir = new File("results");
+            if (!resultsDir.exists() || !resultsDir.isDirectory()) {
+                System.out.println("ℹ No results directory found.");
                 return results;
             }
 
             ObjectMapper mapper = new ObjectMapper();
-            JsonNode root = mapper.readTree(resultsFile);
-            JsonNode resultsArray = root.get("results");
 
-            if (resultsArray != null && resultsArray.isArray()) {
-                for (JsonNode node : resultsArray) {
-                    String playerName = node.get("playerName").asText();
-                    int totalQuestions = node.get("totalQuestions").asInt();
-                    int correctQuestions = node.get("correctQuestions").asInt();
+            for (File file : resultsDir.listFiles((dir, name) -> name.endsWith("-results.json"))) {
+                JsonNode root = mapper.readTree(file);
+                JsonNode resultsArray = root.get("results");
 
-                    results.add(new Result(playerName, totalQuestions, correctQuestions));
+                if (resultsArray != null && resultsArray.isArray()) {
+                    for (JsonNode node : resultsArray) {
+                        String playerName = node.get("playerName").asText();
+                        int totalQuestions = node.get("totalQuestions").asInt();
+                        int correctQuestions = node.get("correctQuestions").asInt();
+                        String date = node.get("date").asText();
+
+                        results.add(new Result(playerName, totalQuestions, correctQuestions, date));
+                    }
                 }
             }
 
-            System.out.println(" Loaded " + results.size() + " results from file.");
+            System.out.println("📊 Loaded " + results.size() + " total results from all quizzes.");
 
-        } catch (IOException e) {
-            System.out.println(" Error reading results file: " + e.getMessage());
         } catch (Exception e) {
-            System.out.println(" Unexpected error loading results: " + e.getMessage());
+            System.out.println("Error loading results: " + e.getMessage());
+            e.printStackTrace();
         }
 
         return results;
     }
-
 
 }

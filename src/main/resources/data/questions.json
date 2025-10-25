@@ -1,17 +1,60 @@
 {
+  "quizId": "javaQuiz",
+  "title": "Java Fundamentals Quiz",
+  "feedback": {
+    "excellent": "<h2 style='color:green;'>Excellent! You’re a real Java master!</h2>",
+    "good": "<h2 style='color:orange;'>Good job! You understand Java quite well.</h2>",
+    "poor": "<h2 style='color:red;'>Keep practicing your Java basics!</h2>"
+  },
   "pages": [
     {
       "timeLimit": 15,
       "elements": [
         {
           "type": "radiogroup",
-          "title": "What is the capital of France?",
-          "choices": ["Berlin", "Paris", "Rome"],
-          "correctAnswer": "Paris"
+          "title": "Which keyword is used to inherit a class in Java?",
+          "choices": ["this", "super", "extends"],
+          "correctAnswer": "extends"
         },
         {
           "type": "boolean",
-          "title": "Java is a type of operating system.",
+          "title": "In Java, '==' compares the contents of two strings.",
+          "correctAnswer": false,
+          "labelTrue": "True",
+          "labelFalse": "False"
+        }
+      ]
+    },
+    {
+      "timeLimit": 15,
+      "elements": [
+        {
+          "type": "radiogroup",
+          "title": "Which of the following is not a Java primitive data type?",
+          "choices": ["int", "boolean", "String"],
+          "correctAnswer": "String"
+        },
+        {
+          "type": "boolean",
+          "title": "Every Java program must have a class with a main method.",
+          "correctAnswer": true,
+          "labelTrue": "True",
+          "labelFalse": "False"
+        }
+      ]
+    },
+    {
+      "timeLimit": 15,
+      "elements": [
+        {
+          "type": "radiogroup",
+          "title": "Which collection does not allow duplicate elements?",
+          "choices": ["List", "Set", "Map"],
+          "correctAnswer": "Set"
+        },
+        {
+          "type": "boolean",
+          "title": "In Java, an abstract class can be instantiated directly.",
           "correctAnswer": false,
           "labelTrue": "True",
           "labelFalse": "False"

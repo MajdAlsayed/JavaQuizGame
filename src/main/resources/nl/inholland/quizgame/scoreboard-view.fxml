@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<StackPane xmlns="http://javafx.com/javafx"
+           xmlns:fx="http://javafx.com/fxml"
+           fx:controller="nl.inholland.quizgame.controller.ScoreboardController"
+           style="-fx-background-color: linear-gradient(to bottom, #f8f8f8, #ebebeb);">
+
+    <VBox alignment="CENTER" spacing="25" prefWidth="800">
+        <padding>
+            <Insets top="40" right="40" bottom="40" left="40"/>
+        </padding>
+
+        <Label text="Scoreboard"
+               style="-fx-font-size: 26px; -fx-font-weight: bold;"/>
+
+        <TableView fx:id="scoreTable" prefWidth="600">
+            <columns>
+                <TableColumn fx:id="nameColumn" text="Player" prefWidth="150"/>
+                <TableColumn fx:id="totalColumn" text="Total Qs" prefWidth="100"/>
+                <TableColumn fx:id="correctColumn" text="Correct" prefWidth="100"/>
+                <TableColumn fx:id="dateColumn" text="Date" prefWidth="250"/>
+            </columns>
+        </TableView>
+
+        <Button text="Back to Menu"
+                onAction="#handleBack"
+                prefWidth="200"
+                style="-fx-background-color: #4285F4; -fx-text-fill: white; -fx-font-size: 15px;"/>
+    </VBox>
+
+</StackPane>

@@ -1,40 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
 <StackPane xmlns="http://javafx.com/javafx"
            xmlns:fx="http://javafx.com/fxml"
            fx:controller="nl.inholland.quizgame.controller.EndController"
-           style="-fx-background-color: linear-gradient(to bottom, #fafafa, #e8e8e8);">
+           stylesheets="@style.css"
+           style="-fx-background-color: linear-gradient(to bottom, #f6f6f6, #eaeaea);">
 
-    <VBox alignment="CENTER" spacing="25" prefWidth="800">
-        <padding>
-            <Insets top="30" right="20" bottom="30" left="20"/>
-        </padding>
+    <VBox alignment="CENTER" spacing="25">
+        <VBox alignment="CENTER" spacing="15" maxWidth="550"
+              styleClass="question-card">
 
-        <Label fx:id="congratsLabel"
-               text="Well done!"
-               style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #333;"/>
+            <!-- Header -->
+            <Label fx:id="congratsLabel"
+                   text="Great job!"
+                   styleClass="end-title"/>
 
-        <Label fx:id="scoreLabel"
-               text="You scored 0/0"
-               style="-fx-font-size: 20px; -fx-text-fill: #444;"/>
+            <Label fx:id="scoreLabel"
+                   text="Your final score: 6 / 6"
+                   styleClass="end-score"/>
 
-        <HBox alignment="CENTER" spacing="20">
-            <Button fx:id="playAgainButton"
-                    text="Play Again"
-                    onAction="#handlePlayAgain"
-                    prefWidth="120"
-                    style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-size: 14px;"/>
+            <!-- Feedback area -->
+            <StackPane fx:id="feedbackContainer"
+                       prefHeight="180"
+                       prefWidth="520"
+                       maxWidth="600"
+                       styleClass="feedback-box"/>
 
-            <Button fx:id="exitButton"
-                    text="Exit"
-                    onAction="#handleExit"
-                    prefWidth="120"
-                    style="-fx-background-color: #e53935; -fx-text-fill: white; -fx-font-size: 14px;"/>
-        </HBox>
+            <!-- Buttons row -->
+            <HBox alignment="CENTER" spacing="20">
+                <Button text="Play Again"
+                        onAction="#handlePlayAgain"
+                        styleClass="play-btn"/>
+
+                <Button text="View Scoreboard"
+                        onAction="#handleScoreboard"
+                        styleClass="score-btn"/>
+
+                <Button text="Exit"
+                        onAction="#handleExit"
+                        styleClass="exit-btn"/>
+            </HBox>
+        </VBox>
     </VBox>
-
 </StackPane>
